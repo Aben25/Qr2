@@ -13,7 +13,7 @@ import { Button, Card, ListGroup, Row } from "react-bootstrap";
 import { useContext } from "react";
 import { NameContext } from "./Index.js";
 export default function Hit({ hit}) {
-const { setName, setUrl } = useContext(NameContext);
+const { setName, setUrl, setCompanyName } = useContext(NameContext);
 
 
 
@@ -33,6 +33,7 @@ const { setName, setUrl } = useContext(NameContext);
           variant="secondary"
           onClick={() => {
             setUrl(window.location.href + "" + hit.FirstName);
+            setCompanyName(hit.CompanyName);
             setName(hit.FullName);
           }}
         >

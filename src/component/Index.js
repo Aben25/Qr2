@@ -12,26 +12,28 @@ export const NameContext = createContext();
 export default function Index() {
   const {currentEvent} = useContext(EventContext);
 
-   console.log(currentEvent.Name);
 
 
 const [url, setUrl] = useState(window.location.href);
 const [name, setName] = useState("John Doe");
+const [companyName, setCompanyName] = useState("ARTBA");
+
+
 
   return (
     <Container>
-      <NameContext.Provider value={{ name, url, setUrl, setName }}>
+      <NameContext.Provider
+        value={{ companyName, name, url, setUrl, setName, setCompanyName }}
+      >
         <Row className="m-2">
-          <Col>
-
-          </Col>
+          <Col></Col>
         </Row>
         <Row className="">
           <Col sm={4}>
             <Qr />
           </Col>
           <Col sm={8}>
-            <Algo  />
+            <Algo />
           </Col>
         </Row>
       </NameContext.Provider>

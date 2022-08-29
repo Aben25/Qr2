@@ -9,7 +9,7 @@ import {NameContext} from "./Index.js";
 
 export default function Qr() {
   
-    const {name,url} = useContext(NameContext);
+    const { name, url, companyName } = useContext(NameContext);
     const handleDownloadImage = async () => {
       const element = document.getElementById("print"),
         canvas = await html2canvas(element),
@@ -35,6 +35,8 @@ export default function Qr() {
     <div>
       <div id="print">
         {name}
+        <br />
+        {companyName}
         <br></br>
         {qrcode}
       </div>
