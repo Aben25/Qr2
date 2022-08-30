@@ -109,7 +109,6 @@ for (var i = 0; i < contact.length; i++) {
 
   return (
     <div className="App">
-      <BrowserRouter>
       <NavB/>
       <hr/>
         <h1>{}</h1>
@@ -132,7 +131,6 @@ for (var i = 0; i < contact.length; i++) {
             }
           />
         </Routes>
-      </BrowserRouter>
     </div>
   );
 }
