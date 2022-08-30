@@ -72,3 +72,11 @@ body {
   max-width: 100%;
   overflow-x: hidden;
 }
+#qrCode{
+  margin-left: -55px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding: 6%;
+  border: #9c9292 1px solid;
+  background-color: #0000;
+}

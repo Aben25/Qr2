@@ -4,6 +4,7 @@ import Vcard from "./component/Vcard.js";
 import React, { useState, useEffect, createContext } from "react";
 import Index from "./component/Index.js";
 import Event from "./component/Event";
+import NavB from "./component/Nav";
 
 export const EventContext = createContext();
 
@@ -20,8 +21,8 @@ function App() {
     {
       Name: "",
       Description: "",
-      EventUniqueId: "16763198-b512-4fc8-ac56-02c29a75c902",
-    },
+      EventUniqueId: "16763198-b512-4fc8-ac56-02c29a75c902"
+    }
   ]);
 
     useEffect(() => {
@@ -32,13 +33,14 @@ function App() {
 
   useEffect(() => {
     window.sessionStorage.setItem("currentEvent_1", JSON.stringify(currentEvent));
-    console.log('====================================');
+    console.log('============id========================');
     console.log(currentEvent.EventUniqueId);
-    console.log('====================================');
 
-    const url = `https://connect.artba.org/api/registrations?eventId=${currentEvent.EventUniqueId}`;
+    const url = `https://connect.artba.org/api/registrations?eventId=${currentEvent.EventUniqueId===undefined?"16763198-b512-4fc8-ac56-02c29a75c902":currentEvent.EventUniqueId}`
  
-
+console.log('==========url==========================');
+console.log(url);
+console.log('====================================');
     //Get all events from the database and send them to algolia
     var myHeaders = new Headers();
     myHeaders.append(
@@ -64,6 +66,8 @@ fetch(url,requestOptions)
   .then((result) => {console.log(result["Results"]);
     setContact(result["Results"])})
   .catch((error) => console.log("error", error));
+  index.clearObjects();
+  index.saveObjects(data, { autoGenerateObjectIDIfNotExist: true });
 
     //Get contact for the picked event from the database and send them to algolia
   }, [currentEvent]);
@@ -77,8 +81,7 @@ for (var i = 0; i < contact.length; i++) {
   data.push(contact[i].Attendees[0]);
 }
 
-index.clearObjects();
-index.saveObjects(data, { autoGenerateObjectIDIfNotExist: true });
+
   const routeComponents = data.map(
     ({
       FullName,
@@ -109,6 +112,8 @@ index.saveObjects(data, { autoGenerateObjectIDIfNotExist: true });
   return (
     <div className="App">
       <BrowserRouter>
+      <NavB/>
+      <hr/>
         <h1>{}</h1>
         <Routes>{routeComponents}</Routes>
         <Routes>
