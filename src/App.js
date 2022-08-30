@@ -34,7 +34,7 @@ function App() {
   useEffect(() => {
     window.sessionStorage.setItem("currentEvent_1", JSON.stringify(currentEvent));
 
-    const url = `https://connect.artba.org/api/registrations?eventId=${currentEvent.EventUniqueId===undefined?"16763198-b512-4fc8-ac56-02c29a75c902":currentEvent.EventUniqueId}`
+    const url = `https://connect.artba.org/api/registrations?eventId="16763198-b512-4fc8-ac56-02c29a75c902`
  
 console.log('==========url==========================');
 console.log(url);
