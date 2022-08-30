@@ -15,6 +15,9 @@ const index = client.initIndex("contact_info");
 const e_index = client.initIndex("event_info");
 
 function App() {
+  console.log('====================================');
+  console.log('====================================');
+  console.log('====================================');
   const [contact, setContact] = useState([]);
   const [event, setEvent] = useState([]);
   const [currentEvent, setCurrentEvent] = useState([
