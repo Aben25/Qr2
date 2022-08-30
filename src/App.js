@@ -36,9 +36,6 @@ function App() {
 
     const url = `https://connect.artba.org/api/registrations?eventId="16763198-b512-4fc8-ac56-02c29a75c902`
  
-console.log('==========url==========================');
-console.log(url);
-console.log('====================================');
     //Get all events from the database and send them to algolia
     var myHeaders = new Headers();
     myHeaders.append(
